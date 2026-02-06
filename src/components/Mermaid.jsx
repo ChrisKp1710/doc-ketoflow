@@ -11,12 +11,19 @@ const initMermaid = () => {
             securityLevel: 'loose',
             themeVariables: {
                 primaryColor: '#F2F2F7',
-                primaryTextColor: '#1C1C1E',
+                primaryTextColor: '#1C1C1E', // Keep dark for nodes if they are white
                 primaryBorderColor: '#D1D1D6',
-                lineColor: '#8E8E93',
+                lineColor: '#A1A1A6', // Lighter grey
                 secondaryColor: '#E5F1FB',
                 tertiaryColor: '#FFFFFF',
-                fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif'
+                fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
+                
+                // Sequence Diagram Specifics
+                signalColor: '#A1A1A6',
+                signalTextColor: '#A1A1A6', // Lighter text for signals
+                actorTextColor: '#1C1C1E', // Actors correspond to nodes (white bg)
+                activationBorderColor: '#666',
+                noteTextColor: '#1C1C1E',
             }
         });
         window.mermaidInitialized = true;
