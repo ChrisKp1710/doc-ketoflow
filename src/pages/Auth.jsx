@@ -1,4 +1,3 @@
-import React from 'react';
 import Mermaid from '../components/Mermaid';
 
 export default function Auth() {

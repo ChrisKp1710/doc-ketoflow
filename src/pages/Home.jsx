@@ -1,5 +1,4 @@
-import React from 'react';
-import { Layers, Lock, Gem, Database, CheckCircle, Clock, ArrowRight, Activity, Calendar } from 'lucide-react';
+import { Layers, Lock, Gem, Database, Activity, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Mockup from '../components/Mockup';
 import Roadmap from '../components/Roadmap';
@@ -16,7 +15,7 @@ export default function Home() {
                 <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
                     iOS Development Master Plan v2.0
                 </p>
-                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-sm font-bold">
+                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-green-600 dark:bg-green-900/30 text-white dark:text-green-400 rounded-full text-sm font-bold shadow-lg shadow-green-200 dark:shadow-none">
                     <Activity size={16} />
                     Status: Foundation Completed & Offline-First Active 🚀
                 </div>
@@ -92,7 +91,7 @@ export default function Home() {
                                 <li><strong>Sync Cloud:</strong> Upload background da CoreData a Supabase.</li>
                                 <li><strong>UI Polish:</strong> Miglioramento design bottoni e card.</li>
                             </ul>
-                            <div className="mt-6 p-3 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded-lg text-sm font-bold text-center">
+                            <div className="mt-6 p-3 bg-green-600 dark:bg-green-900/20 text-white dark:text-green-400 rounded-lg text-sm font-bold text-center shadow-lg shadow-green-200 dark:shadow-none">
                                 Stato Build: 🟢 Funzionante (Login + DB Locale + Cloud Sync)
                             </div>
                         </div>
