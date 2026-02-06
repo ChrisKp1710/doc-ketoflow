@@ -16,10 +16,10 @@ export default function Layout() {
     ];
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row bg-[var(--bg-color)] text-[var(--text-primary)] transition-colors duration-500">
+        <div className="h-screen overflow-hidden flex flex-col md:flex-row bg-[var(--bg-color)] text-[var(--text-primary)] transition-colors duration-500">
             
             {/* MOBILE HEADER */}
-            <div className="md:hidden flex items-center justify-between p-4 border-b border-[var(--border-color)] bg-[var(--card-bg)]">
+            <div className="md:hidden flex items-center justify-between p-4 border-b border-[var(--border-color)] bg-[var(--card-bg)] shrink-0">
                 <span className="font-bold text-lg">🥑 KetoFlow Docs</span>
                 <button onClick={() => setMenuOpen(!menuOpen)}>
                     {menuOpen ? <X /> : <Menu />}
@@ -76,8 +76,10 @@ export default function Layout() {
             </aside>
 
             {/* MAIN CONTENT */}
-            <main className="flex-1 w-full max-w-5xl mx-auto p-6 md:p-12 overflow-y-auto">
-                <Outlet />
+            <main className="flex-1 w-full overflow-y-auto">
+                <div className="max-w-5xl mx-auto p-6 md:p-12">
+                    <Outlet />
+                </div>
             </main>
 
             {/* OVERLAY FOR MOBILE */}

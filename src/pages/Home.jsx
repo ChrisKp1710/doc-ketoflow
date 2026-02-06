@@ -1,7 +1,8 @@
 import React from 'react';
-import { Layers, Lock, Gem, Database, CheckCircle, Clock, ArrowRight } from 'lucide-react';
+import { Layers, Lock, Gem, Database, CheckCircle, Clock, ArrowRight, Activity, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Mockup from '../components/Mockup';
+import Roadmap from '../components/Roadmap';
 
 export default function Home() {
     return (
@@ -16,8 +17,8 @@ export default function Home() {
                     iOS Development Master Plan v2.0
                 </p>
                 <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-sm font-bold">
-                    <Clock size={16} />
-                    Status: In Progress
+                    <Activity size={16} />
+                    Status: Foundation Completed & Offline-First Active 🚀
                 </div>
             </header>
 
@@ -44,6 +45,70 @@ export default function Home() {
                     </Link>
                 ))}
             </div>
+
+            {/* PROGRESS LOG SECTION (UPDATED) */}
+            <section className="card border-l-4 border-green-500">
+                <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-bold flex items-center gap-2">
+                        <Calendar className="text-green-500" />
+                        Project Status & Progress
+                    </h2>
+                    <span className="text-sm font-mono text-[var(--text-secondary)]">Last Update: 27 Jan 2026</span>
+                </div>
+                
+                <div className="prose dark:prose-invert max-w-none">
+                    <p className="text-lg">
+                        Abbiamo completato le <strong className="text-green-500">fondamenta dell'applicazione</strong>, passando da un template vuoto a un sistema funzionante con Database e Login Reale.
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-8 mt-6">
+                        <div>
+                            <h3 className="text-lg font-bold mb-3">✅ COSA ABBIAMO FATTO OGGI:</h3>
+                            <ul className="space-y-4">
+                                <li>
+                                    <strong>1. Architettura & Struttura</strong>
+                                    <p className="text-sm text-[var(--text-secondary)]">Modularizzazione in Core, Features, UI. Configurazione Git & GitHub.</p>
+                                </li>
+                                <li>
+                                    <strong>2. Database Locale (Offline-First)</strong>
+                                    <p className="text-sm text-[var(--text-secondary)]">UserEntity, MealEntity, ShoppingItemEntity definiti in CoreData. Persistence Controller attivo.</p>
+                                </li>
+                                <li>
+                                    <strong>3. Backend & Autenticazione</strong>
+                                    <p className="text-sm text-[var(--text-secondary)]">Supabase integrato. Sign in with Apple obbligatorio e funzionante. Auth Guard attiva.</p>
+                                </li>
+                                <li>
+                                    <strong>4. UI & Dashboard (v1.0)</strong>
+                                    <p className="text-sm text-[var(--text-secondary)]">Dashboard dinamica con calcolo carboidrati. Settings con Logout reale.</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div className="bg-[var(--bg-color)] p-6 rounded-xl">
+                            <h3 className="text-lg font-bold mb-3">🚀 NEXT STEPS (Da dove ripartire):</h3>
+                            <ul className="space-y-3 marker:text-blue-500 list-disc pl-5">
+                                <li><strong>AI Vision Scanner:</strong> Integrazione OpenAI per riconoscimento cibo.</li>
+                                <li><strong>Keto Pantry:</strong> Sviluppo lista spesa intelligente.</li>
+                                <li><strong>Sync Cloud:</strong> Upload background da CoreData a Supabase.</li>
+                                <li><strong>UI Polish:</strong> Miglioramento design bottoni e card.</li>
+                            </ul>
+                            <div className="mt-6 p-3 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded-lg text-sm font-bold text-center">
+                                Stato Build: 🟢 Funzionante (Login + DB Locale + Cloud Sync)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ROADMAP SECTION */}
+            <section>
+                 <h2 className="text-3xl mb-8 flex items-center gap-3">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+                        📅 Development Roadmap
+                    </span>
+                 </h2>
+                 <Roadmap />
+            </section>
 
             {/* VISION SECTION */}
             <section className="card">
