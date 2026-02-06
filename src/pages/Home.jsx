@@ -156,8 +156,8 @@ export default function Home() {
             </section>
 
             {/* MOCKUPS */}
-            <section className="card bg-[var(--bg-color)] border-none shadow-none !p-0 pb-10">
-                 <h2 className="text-3xl mb-10 text-center">📱 Interface Concept</h2>
+            <section className="card bg-[var(--bg-color)] border-none shadow-none !p-0 pb-20 pt-20">
+                 <h2 className="text-3xl mb-10 pt-10 text-center">📱 Interface Concept</h2>
                  <div className="flex flex-wrap justify-center gap-10 pb-10">
                      <Mockup 
                         title="Home Dashboard" 

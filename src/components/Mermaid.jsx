@@ -32,16 +32,24 @@ export default function Mermaid({ chart, chartId }) {
 
         if (ref.current && chart) {
             const id = `mermaid-${chartId || Math.random().toString(36).substr(2, 9)}`;
-            
+
+            // Clean up the chart string (remove leading indentations/newlines)
+            const cleanChart = chart
+                .replace(/^[\n\r]+/, '') // Remove leading newlines
+                .split('\n')
+                .map(line => line.trim()) // Trim every line
+                .join('\n');
+
             try {
-                mermaid.render(id, chart).then(({ svg }) => {
+                mermaid.render(id, cleanChart).then(({ svg }) => {
                     setSvg(svg);
                 }).catch(e => {
                     console.error("Mermaid Render Error:", e);
-                    // Minimal error feedback
+                    setSvg(`<div class="text-red-500 p-4 border border-red-500 rounded bg-red-500/10 text-xs font-mono whitespace-pre-wrap">Error rendering diagram:\n${e.message}</div>`);
                 });
             } catch (e) {
                  console.error("Mermaid Sync Error:", e);
+                 setSvg(`<div class="text-red-500 p-4">Sync Error: ${e.message}</div>`);
             }
         }
     }, [chart, chartId]);

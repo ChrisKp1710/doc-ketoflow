@@ -17,31 +17,31 @@ export default function Architecture() {
                 <p className="text-[var(--text-secondary)] mb-6">Interazione tra l'app locale, il database interno e i servizi cloud.</p>
                 
                 <Mermaid chart={`
-                graph TB
-                    %% Nodes
-                    User((User))
-                    App["📱 KetoFlow iOS"]
-                    LocalDB[("CoreData")]
-                    
-                    subgraph Cloud [Cloud Services]
-                        Supabase["⚡️ Supabase DB"]
-                        Apple[" Auth Service"]
-                        AI["🤖 OpenAI API"]
-                    end
+graph TB
+    %% Nodes
+    User((User))
+    App["📱 KetoFlow iOS"]
+    LocalDB[("CoreData")]
+    
+    subgraph Cloud [Cloud Services]
+        Supabase["⚡️ Supabase DB"]
+        Apple[" Auth Service"]
+        AI["🤖 OpenAI API"]
+    end
 
-                    %% Edges
-                    User -->|Uses| App
-                    App <-->|Hot Path (Instant)| LocalDB
-                    
-                    App -.->|Background Sync| Supabase
-                    App -.->|Auth| Apple
-                    App -.->|Analysis| AI
-                    
-                    %% Styles
-                    style App fill:#E5F1FB,stroke:#007AFF,stroke-width:2px,color:#000
-                    style LocalDB fill:#FFF3E0,stroke:#FF9500,color:#000
-                    style Supabase fill:#E8F5E9,stroke:#34C759,color:#000
-                    style Cloud fill:#FFFFFF,stroke:#D1D1D6,color:#000
+    %% Edges
+    User -->|Uses| App
+    App <-->|"Hot Path (Instant)"| LocalDB
+    
+    App -.->|"Background Sync"| Supabase
+    App -.->|Auth| Apple
+    App -.->|Analysis| AI
+    
+    %% Styles
+    style App fill:#E5F1FB,stroke:#007AFF,stroke-width:2px,color:#000
+    style LocalDB fill:#FFF3E0,stroke:#FF9500,color:#000
+    style Supabase fill:#E8F5E9,stroke:#34C759,color:#000
+    style Cloud fill:#FFFFFF,stroke:#D1D1D6,color:#000
                 `} chartId="arch-context" />
             </div>
 
