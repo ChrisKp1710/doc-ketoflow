@@ -31,8 +31,9 @@ export default function Mermaid({ chart, chartId }) {
         initMermaid(); // Ensure init happened
 
         if (ref.current && chart) {
-            const id = `mermaid-${chartId || Math.random().toString(36).substr(2, 9)}`;
-
+            // detailed unique id to prevent collisions in Strict Mode or rapid re-renders
+            const uniqueId = `mermaid-${chartId || 'auto'}-${Math.random().toString(36).substr(2, 9)}`;
+            
             // Clean up the chart string (remove leading indentations/newlines)
             const cleanChart = chart
                 .replace(/^[\n\r]+/, '') // Remove leading newlines
@@ -41,7 +42,7 @@ export default function Mermaid({ chart, chartId }) {
                 .join('\n');
 
             try {
-                mermaid.render(id, cleanChart).then(({ svg }) => {
+                mermaid.render(uniqueId, cleanChart).then(({ svg }) => {
                     setSvg(svg);
                 }).catch(e => {
                     console.error("Mermaid Render Error:", e);

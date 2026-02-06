@@ -19,23 +19,23 @@ export default function UX() {
                 <p className="text-[var(--text-secondary)] mb-6">Ciclo continuo tra acquisizione cibo (Spesa) e consumo (Diario).</p>
 
                 <Mermaid chart={`
-                graph LR
-                    Dashboard[🏠 Dashboard]
-                    
-                    subgraph Pantry_Zone [Zone: Acquisition]
-                        List[🛒 Lista Spesa]
-                        Scan[📷 Barcode Scan]
-                    end
-                    
-                    subgraph Diary_Zone [Zone: Consumption]
-                        Entry[🍽️ Log Pasto]
-                        Photo[📸 Foto Piatto]
-                    end
+graph LR
+    Dashboard["🏠 Dashboard"]
+    
+    subgraph Pantry_Zone [Zone: Acquisition]
+        List["🛒 Lista Spesa"]
+        Scan["📷 Barcode Scan"]
+    end
+    
+    subgraph Diary_Zone [Zone: Consumption]
+        Entry["🍽️ Log Pasto"]
+        Photo["📸 Foto Piatto"]
+    end
 
-                    Dashboard <-->|Swipe| List
-                    List -->|Add| Scan
-                    Dashboard -->|Log| Entry
-                    Entry --> Photo
+    Dashboard <-->|"Swipe"| List
+    List -->|"Add"| Scan
+    Dashboard -->|"Log"| Entry
+    Entry --> Photo
                 `} chartId="ux-loop" />
             </div>
 
@@ -47,23 +47,23 @@ export default function UX() {
                 <p className="text-[var(--text-secondary)] mb-6">Dove convertiamo l'utente Free in Premium.</p>
 
                 <Mermaid chart={`
-                flowchart TD
-                    User(User Action)
-                    
-                    User -->|Taps Camera| Intent{Cosa scansiono?}
-                    
-                    Intent -->|Barcode| Free[✅ Scanner Gratis]
-                    Intent -->|Piatto Pronto| AI[🤖 AI Vision]
-                    
-                    AI --> Check{Is Premium?}
-                    Check -- Yes --> Result[Result: Carbonara 12g Net Carbs]
-                    Check -- No --> Paywall[[💎 Show Paywall €2]]
-                    
-                    Paywall -.->|Subscribe| Result
-                    Paywall -.->|Cancel| Manual[Fallback: Inserimento Manuale]
-                    
-                    style Paywall fill:#FCE4EC,stroke:#FF2D55,stroke-dasharray: 5 5
-                    style Result fill:#E0F2F1,stroke:#009688
+flowchart TD
+    User("User Action")
+    
+    User -->|"Taps Camera"| Intent{"Cosa scansiono?"}
+    
+    Intent -->|"Barcode"| Free["✅ Scanner Gratis"]
+    Intent -->|"Piatto Pronto"| AI["🤖 AI Vision"]
+    
+    AI --> Check{"Is Premium?"}
+    Check -- "Yes" --> Result["Result: Carbonara 12g Net Carbs"]
+    Check -- "No" --> Paywall[["💎 Show Paywall €2"]]
+    
+    Paywall -.->|"Subscribe"| Result
+    Paywall -.->|"Cancel"| Manual["Fallback: Inserimento Manuale"]
+    
+    style Paywall fill:#FCE4EC,stroke:#FF2D55,stroke-dasharray: 5 5
+    style Result fill:#E0F2F1,stroke:#009688
                 `} chartId="ux-funnel" />
             </div>
         </div>
